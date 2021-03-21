@@ -1,6 +1,7 @@
 plugins {
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'org.beryx.jlink' version '2.23.1'
 }
 
 group 'me.moeux'
@@ -9,7 +10,30 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:mac"
+}
+
 javafx {
     version = "15.0.1"
     modules = ['javafx.controls', 'javafx.fxml']
+}
+
+jlink {
+    launcher {
+        name = 'me.moeux.passwordgenerator.Launcher'
+    }
+}
+
+mainClassName = 'me.moeux.passwordgenerator.Launcher'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'me.moeux.passwordgenerator.Launcher'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
