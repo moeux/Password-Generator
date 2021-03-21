@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<AnchorPane prefHeight="500.0" prefWidth="800.0"
+            style="-fx-background-radius: 20; -fx-background-color: radial-gradient(radius 180%, limegreen, derive(dodgerblue, -10%), derive(limegreen, 50%)); -fx-border-color: #083c70; -fx-border-radius: 20; -fx-border-width: 3;"
+            xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="me.moeux.passwordgenerator.Controller">
+    <Button layoutX="358.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#copyToClipboard"
+            text="Copy to Clipboard" textFill="WHITE" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="100.0"/>
+    <Button layoutX="101.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#generatePassword"
+            text="Generate Password" textFill="WHITE" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="100.0"/>
+    <Button id="exitButton" layoutX="561.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#exit" text="X"
+            textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0"/>
+    <VBox layoutX="50.0" layoutY="60.0" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="50.0"
+          AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="60.0">
+        <HBox VBox.vgrow="ALWAYS">
+            <VBox HBox.hgrow="ALWAYS">
+                <Text fill="WHITE" smooth="false" stroke="WHITE" strokeWidth="0.0" text="Strength"
+                      wrappingWidth="298.638671875" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets bottom="10.0"/>
+                    </VBox.margin>
+                </Text>
+                <Slider fx:id="strengthSlider" blockIncrement="1.0" majorTickUnit="1.0" max="3.0" min="1.0"
+                        minorTickCount="0" orientation="VERTICAL" showTickLabels="true" showTickMarks="true"
+                        snapToTicks="true" VBox.vgrow="ALWAYS"/>
+            </VBox>
+            <VBox HBox.hgrow="ALWAYS">
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Length" wrappingWidth="298.638671875"
+                      VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets bottom="10.0"/>
+                    </VBox.margin>
+                </Text>
+                <Slider fx:id="lengthSlider" blockIncrement="8.0" majorTickUnit="8.0" max="32.0" min="8.0"
+                        minorTickCount="0" orientation="VERTICAL" showTickLabels="true" showTickMarks="true"
+                        snapToTicks="true" value="8.0" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </Slider>
+            </VBox>
+        </HBox>
+        <Separator disable="true" orientation="VERTICAL" prefHeight="46.0" prefWidth="11.0" visible="false"/>
+        <TextField fx:id="textField" alignment="CENTER" editable="false"
+                   style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: white; -fx-border-color: #083c70; -fx-border-width: 3;"
+                   VBox.vgrow="ALWAYS"/>
+    </VBox>
+</AnchorPane>
