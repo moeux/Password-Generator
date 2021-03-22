@@ -1,6 +1,8 @@
 # Password-Generator
 A Password Generator written with JavaFX.
 
+![App](img.png)
+
 
 **3 Security Settings**
 - Weak: Lower- and uppercase letters
